@@ -3,7 +3,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Home from "./Home";
 import PokemonDetails from "./PokemonDetails";
 import Pokedex from "./Pokedex";
-
+import Login from "./Login";
 import Navbar from ".//Navbar";
 
 import "./App.css";
@@ -15,6 +15,8 @@ function App() {
       <Navbar />
 
       <Routes>
+        <Route path="/login" 
+        element={<Login />} />
 
         <Route path="/" element={<Home />} />
 

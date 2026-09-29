@@ -1,3 +1,7 @@
+/* =========================================================
+   GLOBAL
+========================================================= */
+
 * {
   margin: 0;
   padding: 0;
@@ -14,8 +18,15 @@ body {
   color: white;
 }
 
+button,
+input {
+  font-family: inherit;
+}
 
-/* NAVBAR */
+
+/* =========================================================
+   NAVBAR
+========================================================= */
 
 .navbar {
   height: 75px;
@@ -29,8 +40,7 @@ body {
   top: 0;
   z-index: 1000;
 
-  background: rgba(7,9,20,.9);
-
+  background: rgba(7, 9, 20, 0.92);
   backdrop-filter: blur(15px);
 
   border-bottom: 1px solid #24283b;
@@ -38,24 +48,29 @@ body {
 
 .logo {
   text-decoration: none;
-
   font-size: 25px;
   font-weight: 900;
-
   color: #ffcb05;
+
+  transition: 0.3s;
+}
+
+.logo:hover {
+  transform: scale(1.05);
 }
 
 .nav-links {
   display: flex;
+  align-items: center;
   gap: 35px;
 }
 
 .nav-links a {
   text-decoration: none;
-  color: white;
+  color: #dfe3f0;
   font-weight: bold;
 
-  transition: .3s;
+  transition: 0.3s;
 }
 
 .nav-links a:hover {
@@ -73,15 +88,18 @@ body {
   text-decoration: none;
   font-weight: bold;
 
-  transition: .3s;
+  transition: 0.3s;
 }
 
 .nav-button:hover {
-  transform: scale(1.08);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(255, 203, 5, 0.25);
 }
 
 
-/* HERO */
+/* =========================================================
+   HERO / HOME
+========================================================= */
 
 .hero {
   min-height: 620px;
@@ -115,24 +133,21 @@ body {
   color: #ffcb05;
   letter-spacing: 3px;
   font-weight: bold;
-
   margin-bottom: 20px;
 }
 
 .hero h1 {
   font-size: clamp(55px, 7vw, 90px);
-  line-height: .95;
-
+  line-height: 0.95;
   margin-bottom: 30px;
 }
 
 .hero h1 span {
   display: block;
-
   color: #ffcb05;
 
   text-shadow:
-    0 0 25px rgba(255,203,5,.4);
+    0 0 25px rgba(255, 203, 5, 0.4);
 }
 
 .hero-text {
@@ -150,31 +165,30 @@ body {
   padding: 15px 28px;
 
   background: #ffcb05;
-
   color: #111;
 
   border-radius: 30px;
 
   text-decoration: none;
-
   font-weight: bold;
 
-  transition: .3s;
+  transition: 0.3s;
 }
 
 .hero-button:hover {
   transform: translateY(-5px);
 
   box-shadow:
-    0 15px 35px rgba(255,203,5,.3);
+    0 15px 35px rgba(255, 203, 5, 0.3);
 }
 
 
-/* HERO POKEMON */
+/* =========================================================
+   HERO POKEMON
+========================================================= */
 
 .hero-pokemon {
   position: relative;
-
   animation: floating 4s ease-in-out infinite;
 }
 
@@ -185,7 +199,7 @@ body {
   z-index: 2;
 
   filter:
-    drop-shadow(0 30px 30px rgba(0,0,0,.5));
+    drop-shadow(0 30px 30px rgba(0, 0, 0, 0.5));
 }
 
 .circle {
@@ -198,33 +212,36 @@ body {
 
   background: #ffcb05;
 
-  opacity: .08;
+  opacity: 0.08;
 
   filter: blur(20px);
 }
 
 @keyframes floating {
 
-  0%,100% {
+  0%,
+  100% {
     transform: translateY(0);
   }
 
   50% {
     transform: translateY(-25px);
   }
-
 }
 
 
-/* POKEDEX */
+/* =========================================================
+   POKEDEX SECTION
+========================================================= */
 
 .pokedex {
   padding: 80px 8%;
+
+  min-height: 600px;
 }
 
 .section-title {
   text-align: center;
-
   margin-bottom: 40px;
 }
 
@@ -238,12 +255,13 @@ body {
 
 .section-title h2 {
   font-size: 50px;
-
   margin-top: 10px;
 }
 
 
-/* SEARCH */
+/* =========================================================
+   SEARCH
+========================================================= */
 
 .search-box {
   width: min(600px, 90%);
@@ -269,13 +287,19 @@ body {
   outline: none;
 
   font-size: 16px;
+
+  transition: 0.3s;
+}
+
+.search-box input::placeholder {
+  color: #707890;
 }
 
 .search-box input:focus {
   border-color: #ffcb05;
 
   box-shadow:
-    0 0 20px rgba(255,203,5,.15);
+    0 0 20px rgba(255, 203, 5, 0.15);
 }
 
 .search-box span {
@@ -283,16 +307,20 @@ body {
 
   right: 20px;
   top: 17px;
+
+  font-size: 20px;
 }
 
 
-/* GRID */
+/* =========================================================
+   POKEMON GRID
+========================================================= */
 
 .pokemon-grid {
   display: grid;
 
   grid-template-columns:
-    repeat(auto-fit, minmax(230px,1fr));
+    repeat(auto-fit, minmax(230px, 1fr));
 
   gap: 25px;
 }
@@ -303,7 +331,9 @@ body {
 }
 
 
-/* CARD */
+/* =========================================================
+   POKEMON CARD
+========================================================= */
 
 .pokemon-card {
   position: relative;
@@ -325,7 +355,25 @@ body {
 
   overflow: hidden;
 
-  transition: .4s;
+  transition: 0.4s;
+}
+
+.pokemon-card::before {
+  content: "";
+
+  position: absolute;
+
+  width: 150px;
+  height: 150px;
+
+  top: -70px;
+  right: -70px;
+
+  border-radius: 50%;
+
+  background: #ffcb05;
+
+  opacity: 0.05;
 }
 
 .pokemon-card:hover {
@@ -336,13 +384,13 @@ body {
   border-color: #ffcb05;
 
   box-shadow:
-    0 20px 50px rgba(0,0,0,.5);
+    0 20px 50px rgba(0, 0, 0, 0.5);
 }
 
 .pokemon-card img {
   width: 180px;
 
-  transition: .4s;
+  transition: 0.4s;
 }
 
 .pokemon-card:hover img {
@@ -368,7 +416,9 @@ body {
 }
 
 
-/* TYPES */
+/* =========================================================
+   POKEMON TYPES
+========================================================= */
 
 .types {
   display: flex;
@@ -390,27 +440,86 @@ body {
   font-weight: bold;
 }
 
-.fire { background: #f08030; }
-.water { background: #6890f0; }
-.grass { background: #78c850; }
-.electric { background: #f8d030; color: #111; }
-.psychic { background: #f85888; }
-.ice { background: #98d8d8; color: #111; }
-.dragon { background: #7038f8; }
-.fairy { background: #ee99ac; }
-.poison { background: #a040a0; }
-.ground { background: #e0c068; color: #111; }
-.flying { background: #a890f0; }
-.bug { background: #a8b820; }
-.normal { background: #a8a878; }
-.fighting { background: #c03028; }
-.rock { background: #b8a038; }
-.ghost { background: #705898; }
-.dark { background: #705848; }
-.steel { background: #b8b8d0; color: #111; }
+.fire {
+  background: #f08030;
+}
+
+.water {
+  background: #6890f0;
+}
+
+.grass {
+  background: #78c850;
+}
+
+.electric {
+  background: #f8d030;
+  color: #111;
+}
+
+.psychic {
+  background: #f85888;
+}
+
+.ice {
+  background: #98d8d8;
+  color: #111;
+}
+
+.dragon {
+  background: #7038f8;
+}
+
+.fairy {
+  background: #ee99ac;
+}
+
+.poison {
+  background: #a040a0;
+}
+
+.ground {
+  background: #e0c068;
+  color: #111;
+}
+
+.flying {
+  background: #a890f0;
+}
+
+.bug {
+  background: #a8b820;
+}
+
+.normal {
+  background: #a8a878;
+}
+
+.fighting {
+  background: #c03028;
+}
+
+.rock {
+  background: #b8a038;
+}
+
+.ghost {
+  background: #705898;
+}
+
+.dark {
+  background: #705848;
+}
+
+.steel {
+  background: #b8b8d0;
+  color: #111;
+}
 
 
-/* PAGINATION */
+/* =========================================================
+   PAGINATION
+========================================================= */
 
 .pagination {
   display: flex;
@@ -435,15 +544,26 @@ body {
   font-weight: bold;
 
   cursor: pointer;
+
+  transition: 0.3s;
+}
+
+.pagination button:hover:not(:disabled) {
+  transform: translateY(-3px);
+
+  box-shadow:
+    0 8px 20px rgba(255, 203, 5, 0.25);
 }
 
 .pagination button:disabled {
-  opacity: .4;
+  opacity: 0.4;
   cursor: not-allowed;
 }
 
 
-/* LOADER */
+/* =========================================================
+   LOADER
+========================================================= */
 
 .loader {
   text-align: center;
@@ -467,32 +587,44 @@ body {
 }
 
 @keyframes spin {
-
   to {
     transform: rotate(360deg);
   }
-
 }
 
 
-/* DETAILS */
+/* =========================================================
+   POKEMON DETAILS
+========================================================= */
 
 .details {
   padding: 70px 8%;
+
+  min-height: 700px;
 }
 
 .back-button {
+  display: inline-block;
+
   color: #ffcb05;
 
   text-decoration: none;
 
   font-weight: bold;
+
+  margin-bottom: 10px;
+
+  transition: 0.3s;
+}
+
+.back-button:hover {
+  transform: translateX(-5px);
 }
 
 .details-card {
   max-width: 1100px;
 
-  margin: 50px auto;
+  margin: 40px auto;
 
   display: grid;
 
@@ -514,6 +646,9 @@ body {
     );
 
   border: 1px solid #292f46;
+
+  box-shadow:
+    0 25px 60px rgba(0, 0, 0, 0.4);
 }
 
 .details-image {
@@ -528,7 +663,7 @@ body {
   animation: floating 4s ease-in-out infinite;
 
   filter:
-    drop-shadow(0 25px 30px rgba(0,0,0,.5));
+    drop-shadow(0 25px 30px rgba(0, 0, 0, 0.5));
 }
 
 .pokemon-id {
@@ -555,6 +690,7 @@ body {
 
 .detail-stats div {
   display: flex;
+
   flex-direction: column;
 
   gap: 7px;
@@ -563,6 +699,11 @@ body {
 .detail-stats span {
   color: #777f96;
 }
+
+
+/* =========================================================
+   STATS
+========================================================= */
 
 .stat {
   margin-top: 15px;
@@ -599,12 +740,302 @@ body {
 }
 
 
-/* MOBILE */
+/* =========================================================
+   LOGIN PAGE
+========================================================= */
 
-@media(max-width: 800px) {
+.login-page {
+  min-height: calc(100vh - 75px);
+
+  display: flex;
+
+  justify-content: center;
+  align-items: center;
+
+  padding: 60px 20px;
+
+  background:
+    radial-gradient(
+      circle at 20% 30%,
+      rgba(255, 203, 5, 0.12),
+      transparent 35%
+    ),
+    radial-gradient(
+      circle at 80% 70%,
+      rgba(80, 60, 180, 0.15),
+      transparent 35%
+    ),
+    #070914;
+}
+
+
+/* LOGIN CARD */
+
+.login-card {
+  width: 400px;
+
+  padding: 45px;
+
+  background:
+    linear-gradient(
+      145deg,
+      #171c32,
+      #0d1020
+    );
+
+  border: 1px solid #30364f;
+
+  border-radius: 25px;
+
+  text-align: center;
+
+  box-shadow:
+    0 25px 70px rgba(0, 0, 0, 0.6),
+    0 0 40px rgba(255, 203, 5, 0.08);
+
+  animation: loginAppear 0.6s ease;
+}
+
+
+/* LOGIN ANIMATION */
+
+@keyframes loginAppear {
+  from {
+    opacity: 0;
+
+    transform:
+      translateY(30px)
+      scale(0.95);
+  }
+
+  to {
+    opacity: 1;
+
+    transform:
+      translateY(0)
+      scale(1);
+  }
+}
+
+
+/* LOGIN ICON */
+
+.login-icon {
+  width: 70px;
+  height: 70px;
+
+  margin: 0 auto 20px;
+
+  display: flex;
+
+  justify-content: center;
+  align-items: center;
+
+  background: #ffcb05;
+
+  border-radius: 50%;
+
+  font-size: 32px;
+
+  box-shadow:
+    0 0 30px rgba(255, 203, 5, 0.35);
+
+  animation: iconGlow 2s infinite alternate;
+}
+
+@keyframes iconGlow {
+  from {
+    box-shadow:
+      0 0 15px rgba(255, 203, 5, 0.25);
+  }
+
+  to {
+    box-shadow:
+      0 0 35px rgba(255, 203, 5, 0.55);
+  }
+}
+
+
+/* LOGIN TITLE */
+
+.login-card h1 {
+  margin: 0;
+
+  font-size: 34px;
+
+  color: white;
+}
+
+
+/* LOGIN SUBTITLE */
+
+.login-subtitle {
+  margin: 10px 0 35px;
+
+  color: #8f96aa;
+
+  font-size: 14px;
+
+  line-height: 1.6;
+}
+
+
+/* INPUT GROUP */
+
+.input-group {
+  text-align: left;
+
+  margin-bottom: 22px;
+}
+
+
+/* LABEL */
+
+.input-group label {
+  display: block;
+
+  margin-bottom: 8px;
+
+  color: #c8ccda;
+
+  font-size: 14px;
+
+  font-weight: bold;
+}
+
+
+/* INPUT */
+
+.input-group input {
+  width: 100%;
+
+  padding: 15px 16px;
+
+  box-sizing: border-box;
+
+  background: #0c0f1d;
+
+  color: white;
+
+  border: 1px solid #30364f;
+
+  border-radius: 12px;
+
+  outline: none;
+
+  font-size: 15px;
+
+  transition: 0.3s;
+}
+
+.input-group input:hover {
+  border-color: #555d78;
+}
+
+.input-group input:focus {
+  border-color: #ffcb05;
+
+  box-shadow:
+    0 0 0 3px rgba(255, 203, 5, 0.08),
+    0 0 20px rgba(255, 203, 5, 0.12);
+}
+
+.input-group input::placeholder {
+  color: #626a80;
+}
+
+
+/* LOGIN BUTTON */
+
+.login-btn {
+  width: 100%;
+
+  padding: 15px;
+
+  margin-top: 5px;
+
+  border: none;
+
+  border-radius: 12px;
+
+  background: #ffcb05;
+
+  color: #111;
+
+  font-size: 16px;
+
+  font-weight: 800;
+
+  cursor: pointer;
+
+  transition: 0.3s;
+}
+
+.login-btn:hover {
+  transform: translateY(-3px);
+
+  background: #ffd83d;
+
+  box-shadow:
+    0 12px 30px rgba(255, 203, 5, 0.25);
+}
+
+.login-btn:active {
+  transform: translateY(0);
+}
+
+
+/* LOGIN FOOTER */
+
+.login-footer {
+  margin-top: 25px;
+
+  color: #626a80;
+
+  font-size: 13px;
+}
+
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+
+@media (max-width: 900px) {
+
+  .navbar {
+    padding: 0 5%;
+  }
+
+  .hero {
+    padding: 60px 6%;
+  }
+
+  .hero-pokemon img {
+    width: 330px;
+  }
+
+  .circle {
+    width: 320px;
+    height: 320px;
+  }
+
+  .details-card {
+    gap: 30px;
+    padding: 35px;
+  }
+
+  .details-info h1 {
+    font-size: 48px;
+  }
+}
+
+
+/* TABLET */
+
+@media (max-width: 800px) {
 
   .nav-links {
-    display: none;
+    gap: 20px;
   }
 
   .hero {
@@ -613,6 +1044,10 @@ body {
     text-align: center;
 
     gap: 50px;
+  }
+
+  .hero-content {
+    max-width: 700px;
   }
 
   .hero-pokemon img {
@@ -627,6 +1062,8 @@ body {
   .details-card {
     grid-template-columns: 1fr;
 
+    text-align: center;
+
     padding: 30px;
   }
 
@@ -634,4 +1071,159 @@ body {
     font-size: 45px;
   }
 
+  .detail-stats {
+    justify-content: center;
+  }
+}
+
+
+/* MOBILE */
+
+@media (max-width: 600px) {
+
+  .navbar {
+    height: auto;
+
+    padding: 18px 5%;
+
+    flex-direction: column;
+
+    gap: 15px;
+  }
+
+  .nav-links {
+    gap: 15px;
+
+    flex-wrap: wrap;
+
+    justify-content: center;
+  }
+
+  .nav-links a {
+    font-size: 14px;
+  }
+
+
+  /* HERO */
+
+  .hero {
+    min-height: auto;
+
+    padding: 60px 6% 80px;
+  }
+
+  .hero h1 {
+    font-size: 55px;
+  }
+
+  .hero-text {
+    font-size: 16px;
+  }
+
+  .hero-pokemon img {
+    width: 240px;
+  }
+
+  .circle {
+    width: 240px;
+    height: 240px;
+  }
+
+
+  /* POKEDEX */
+
+  .pokedex {
+    padding: 60px 5%;
+  }
+
+  .section-title h2 {
+    font-size: 38px;
+  }
+
+  .pokemon-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .pokemon-card {
+    max-width: 350px;
+
+    width: 100%;
+
+    margin: auto;
+  }
+
+
+  /* DETAILS */
+
+  .details {
+    padding: 50px 5%;
+  }
+
+  .details-card {
+    padding: 25px;
+
+    margin-top: 30px;
+  }
+
+  .details-info h1 {
+    font-size: 38px;
+  }
+
+  .detail-stats {
+    gap: 25px;
+  }
+
+
+  /* LOGIN */
+
+  .login-page {
+    padding: 40px 15px;
+  }
+
+  .login-card {
+    width: 100%;
+
+    padding: 35px 25px;
+  }
+
+  .login-card h1 {
+    font-size: 28px;
+  }
+}
+
+
+/* SMALL MOBILE */
+
+@media (max-width: 400px) {
+
+  .hero h1 {
+    font-size: 45px;
+  }
+
+  .nav-links {
+    gap: 12px;
+  }
+
+  .nav-links a {
+    font-size: 13px;
+  }
+
+  .login-card {
+    padding: 30px 20px;
+  }
+
+  .login-icon {
+    width: 60px;
+    height: 60px;
+
+    font-size: 27px;
+  }
+
+  .details-info h1 {
+    font-size: 32px;
+  }
+
+  .detail-stats {
+    gap: 18px;
+  }
 }
